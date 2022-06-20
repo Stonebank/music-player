@@ -7,4 +7,5 @@ module com.hk.musicplayer {
 
     opens com.hk.musicplayer to javafx.fxml;
     exports com.hk.musicplayer;
+    exports com.hk.musicplayer.mp3;
 }
