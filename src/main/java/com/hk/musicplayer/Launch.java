@@ -15,9 +15,6 @@ public class Launch extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Launch.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
-        MainController mainController = new MainController();
-        mainController.init();
-
         stage.setTitle("Music player");
         stage.setScene(scene);
         stage.show();
