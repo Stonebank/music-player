@@ -33,7 +33,7 @@ public class MainController {
                     long songDuration = (long) playlist.getMediaPlayer().getTotalDuration().toMillis();
 
                     if (currentTime == songDuration) {
-                        playlist.next();
+                        playlist.forward();
                         System.out.println("Song finished, now playing: " + playlist.getCurrentSong());
                         return;
                     }
