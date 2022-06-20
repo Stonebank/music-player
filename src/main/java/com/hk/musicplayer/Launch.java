@@ -23,8 +23,8 @@ public class Launch extends Application {
             switch (e.getCode()) {
                 case P -> controller.getPlaylist().pause();
                 case R -> controller.getPlaylist().resume();
-                case S -> controller.getPlaylist().forward();
-                case B -> controller.getPlaylist().backward();
+                case S -> controller.getPlaylist().next();
+                case B -> controller.getPlaylist().previous();
                 default -> System.err.println("Unhandled keycode: " + e.getCode());
             }
         });

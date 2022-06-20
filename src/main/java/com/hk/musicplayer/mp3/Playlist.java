@@ -112,7 +112,7 @@ public class Playlist {
 
     }
 
-    public void forward() {
+    public void next() {
 
         stop();
 
@@ -136,7 +136,7 @@ public class Playlist {
 
     }
 
-    public void backward() {
+    public void previous() {
 
         stop();
 
