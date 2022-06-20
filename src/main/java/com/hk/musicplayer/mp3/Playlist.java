@@ -184,11 +184,20 @@ public class Playlist {
     }
 
     private void shuffle() {
+        if (media == null || mediaPlayer == null) {
+            System.err.println("ERROR! media and media-player instances not initialised");
+            return;
+        }
         if (songs == null || songs.isEmpty()) {
             System.err.println("ERROR! There are no songs initialised.");
             return;
         }
+
+        if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING)
+            stop();
+
         Collections.shuffle(songs);
+
     }
 
     private void printSongs() {
