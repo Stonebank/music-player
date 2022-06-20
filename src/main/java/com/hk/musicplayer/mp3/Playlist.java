@@ -58,7 +58,7 @@ public class Playlist {
         }
 
         mediaPlayer.play();
-        System.out.println("Playing: " + current_song);
+        System.out.println("Playing: " + getCurrentSong());
 
     }
 
@@ -74,7 +74,7 @@ public class Playlist {
         }
 
         mediaPlayer.stop();
-        System.out.println("Stopped song: " + current_song);
+        System.out.println("Stopped song: " + getCurrentSong());
 
         media = null;
         mediaPlayer = null;
@@ -93,6 +93,7 @@ public class Playlist {
         }
 
         mediaPlayer.play();
+        System.out.println("Resuming " + getCurrentSong());
 
     }
 
@@ -131,17 +132,24 @@ public class Playlist {
 
         current_song = songs.get(index).getName();
 
-        Platform.startup(() -> {
-            media = new Media(songs.get(index).toURI().toString());
-            mediaPlayer = new MediaPlayer(media);
-            play();
-        });
+        media = new Media(songs.get(index).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        play();
 
+    }
+
+    public MediaPlayer getMediaPlayer() {
+        return mediaPlayer;
     }
 
     public String formatTime(long duration) {
         return String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(duration), TimeUnit.MILLISECONDS.toSeconds(duration) -
                 TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(duration)));
+    }
+
+    public String getCurrentSong() {
+        return current_song.replace("(", "").replace(")", "").replaceAll("official music video", "")
+                .replaceAll(".mp3", "").replace("[", "").replace("]", "").replaceAll("official audio", "");
     }
 
     private void addAllSongs() {
@@ -165,10 +173,6 @@ public class Playlist {
         if (songs.size() >= 20)
             return;
         songs.forEach(song -> System.out.println(song.getName().split(".mp3")[0]));
-    }
-
-    public MediaPlayer getMediaPlayer() {
-        return mediaPlayer;
     }
 
 }
