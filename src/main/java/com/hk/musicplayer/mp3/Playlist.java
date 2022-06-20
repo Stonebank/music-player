@@ -1,6 +1,5 @@
 package com.hk.musicplayer.mp3;
 
-import javafx.application.Platform;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -113,14 +112,13 @@ public class Playlist {
 
     }
 
-    public void next() {
+    public void forward() {
 
         stop();
 
         for (int i = 0; i <  songs.size(); i++) {
             if (songs.get(i).getName().equalsIgnoreCase(current_song)) {
-                index = i;
-                index++;
+                index = i + 1;
                 break;
             }
         }
@@ -133,6 +131,30 @@ public class Playlist {
         current_song = songs.get(index).getName();
 
         media = new Media(songs.get(index).toURI().toString());
+        mediaPlayer = new MediaPlayer(media);
+        play();
+
+    }
+
+    public void backward() {
+
+        stop();
+
+        for (int i = 0; i < songs.size(); i++) {
+            if (songs.get(i).getName().equalsIgnoreCase(current_song)) {
+                index = i - 1;
+                break;
+            }
+        }
+
+        if (index <= 0) {
+            System.out.println("Playlist has finished, playing last song: " + songs.get(songs.size() - 1).getName());
+            index = songs.size() - 1;
+        }
+
+        current_song = songs.get(index).getName();
+
+        media = new Media(songs.get(songs.size() - 1).toURI().toString());
         mediaPlayer = new MediaPlayer(media);
         play();
 
