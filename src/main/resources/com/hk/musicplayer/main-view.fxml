@@ -10,14 +10,15 @@
          <Font name="System Bold" size="27.0" />
       </font>
    </Label>
-   <Label layoutX="52.0" layoutY="214.0" text="CURRENT_SONG">
+   <Label fx:id="current_song" layoutX="52.0" layoutY="214.0" text="CURRENT_SONG">
       <font>
          <Font name="System Bold" size="40.0" />
       </font>
    </Label>
-   <Label layoutX="174.0" layoutY="307.0" text="00:00">
+   <Label fx:id="time" layoutX="174.0" layoutY="307.0" text="00:00">
       <font>
          <Font size="22.0" />
       </font>
    </Label>
+   <Button layoutX="170.0" layoutY="461.0" mnemonicParsing="false" onAction="#play" text="Click me" />
 </AnchorPane>
