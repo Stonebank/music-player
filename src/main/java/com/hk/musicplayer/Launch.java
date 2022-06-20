@@ -15,6 +15,19 @@ public class Launch extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Launch.class.getResource("main-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
+        MainController controller = fxmlLoader.getController();
+
+        controller.observeSongDuration();
+
+        scene.setOnKeyPressed(e -> {
+            switch (e.getCode()) {
+                case P -> controller.getPlaylist().pause();
+                case R -> controller.getPlaylist().resume();
+                case S -> controller.getPlaylist().next();
+                default -> System.err.println("Unhandled keycode: " + e.getCode());
+            }
+        });
+
         stage.setTitle("Music player");
         stage.setScene(scene);
         stage.show();
