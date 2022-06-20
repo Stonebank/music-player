@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hk.musicplayer.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" style="-fx:background=Color.RED" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hk.musicplayer.MainController">
    <Label layoutX="104.0" layoutY="125.0" text="NOW PLAYING">
       <font>
          <Font name="System Bold" size="27.0" />
@@ -20,5 +20,4 @@
          <Font size="22.0" />
       </font>
    </Label>
-   <Button layoutX="170.0" layoutY="461.0" mnemonicParsing="false" onAction="#play" text="Click me" />
 </AnchorPane>
